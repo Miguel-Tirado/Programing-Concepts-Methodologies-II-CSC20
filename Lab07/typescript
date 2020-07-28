@@ -1,0 +1,67 @@
+Script started on Tue 24 Oct 2017 09:49:56 AM PDT
+[tiradom@athena:21]> jbd -attach 20001
+jbd: Command not found.
+[tiradom@athena:22]> stop at infix;[K;71
+stop: Arguments should be jobs or process id's.
+[tiradom@athena:23]> quit
+quit: Command not found.
+[tiradom@athena:24]> quitstop at infix ; 71[22Gjbd -attach 20001[K[22Gman who[K[22Gjbd -attach 20001
+jbd: Command not found.
+[tiradom@athena:25]> jdb -attach 20001
+Set uncaught java.lang.Throwable
+Set deferred uncaught java.lang.Throwable
+Initializing jdb ...
+
+VM Started: > No frames on the current call stack
+
+main[1] stop at infix;  71
+Usage: stop at <class>:<line_number> or
+       stop in <class>.<method_name>[(argument_type,...)]
+main[1] run
+> next
+Nothing suspended.
+> next
+Nothing suspended.
+> next
+Nothing suspended.
+> print opnd2
+com.sun.tools.example.debug.expr.ParseException: Name unknown: opnd2
+ opnd2 = null
+> next
+Nothing suspended.
+> print opnd2
+com.sun.tools.example.debug.expr.ParseException: Name unknown: opnd2
+ opnd2 = null
+> next
+Nothing suspended.
+> ^[[A^[[A^[[A            print opnd2
+com.sun.tools.example.debug.expr.ParseException: Name unknown: opnd2
+ opnd2 = null
+> run   stop at infix  ; ;74
+Usage: stop at <class>:<line_number> or
+       stop in <class>.<method_name>[(argument_type,...)]
+> stop at infix  '74
+Usage: stop at <class>:<line_number> or
+       stop in <class>.<method_name>[(argument_type,...)]
+> stop at in  infix:74
+Set breakpoint infix:74
+> 
+Breakpoint hit: "thread=main", infix.evaluePostfix(), line=74 bci=68
+
+main[1] next
+> 
+Step completed: "thread=main", infix.evaluePostfix(), line=75 bci=75
+
+main[1] print opd nd2
+ opnd2 = 34
+main[1] next
+> 
+Step completed: "thread=main", infix.evaluePostfix(), line=78 bci=81
+
+main[1] print opnd1
+ opnd1 = 12
+main[1] cont
+> quit
+[tiradom@athena:26]> ^Dexit
+
+Script done on Tue 24 Oct 2017 09:57:48 AM PDT
